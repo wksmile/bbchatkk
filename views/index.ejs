@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>BBT</title>
+
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+
+<script type="text/javascript" src="http://cdn.staticfile.org/socket.io/1.3.7/socket.io.js"></script>  
+<script type="text/javascript" src="javascripts/kk.js"></script>
+</head>
+
+<body onload="window_onload()" onunload="window_onunload()">
+	<div class="container">
+	    <div class="page-header" style="background-color: #bbb;">
+			<h1>BB Chat (-^O^-)</h1>
+		</div>
+		<div class="row" style="margin: 16px;">
+			<p style="display: inline;"><span class="glyphicon glyphicon-user"></span> 用户名:</p>
+			<input type="text" id="tbxUsername" value="游客" size="20"/>
+			<button type="button" class="btn btn-success" id="btnLogin" onclick="btnLogin_onclick()">登录</button>
+			<button type="button" class="btn btn-danger" id="btnLogout" onclick="btnLogout_onclick()" disabled="disabled">退出</button>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">对话窗口</div>
+			<div class="panel-body" id="divchat" style="height: 380px;overflow: auto;background-color: #f0f0f0;"></div>
+			<div class="panel-footer">
+				<textarea id="tbxMsg" style="height: 150px; width: 650px" placeholder=" enter to send"></textarea>
+				<div class="clearfix"></div>
+				<button type="button" class="btn btn-primary" id="btnSend" onclick="btnSend_onclick();" disabled="disabled">发 送</button>
+			</div>
+		</div>
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-default">
+  			<div class="panel-heading">聊天室成员</div>
+  			<div class="panel-body" id="divRight" style="height: 588px">
+  			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
