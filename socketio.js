@@ -36,6 +36,10 @@ socketio.getSocketio = function(server){
 			socket.broadcast.emit('logout',name);
 			io.sockets.emit('sendClients',names);
 		});
+		
+		socket.on('img', function(user,imageurl,color) {
+            io.sockets.emit('newImg',user,imageurl,color);   //data包括user,imgurl,color
+    });
 });
 };
 
