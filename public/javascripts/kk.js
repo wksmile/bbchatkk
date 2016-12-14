@@ -191,7 +191,13 @@ document.getElementById('sendImage').addEventListener('change', function() {
                     this.value = '';
                     socket.emit('img',userName,e.target.result,color);
                 };
-                reader.readAsDataURL(file);    //读取文件的url并把url保存在result
+                if(/image\/\w+/.test(file.type)){
+                	reader.readAsDataURL(file);    //读取文件的url并把url保存在result
+                }
+                else{
+                	alert('只能上传图片');
+                }
+                
             };
         }, false);
 
