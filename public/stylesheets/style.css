@@ -33,6 +33,12 @@ a {
 	top: 80px;
 }
 
+#shake {
+	position: absolute;
+	left: 78%;
+	top: 110px;
+}
+
 #emojiWrapper{
 	display: none;
 	width: 60%;
@@ -57,6 +63,16 @@ a {
     display: inline;
     }
 
+.shake {
+animation:shake 0.2s 5;
+-moz-animation:shake 0.2s 5;   /* Firefox */
+-webkit-animation:shake 0.2s 5;   /* Safari and Chrome */
+-o-animation:shake 0.2s 5;    /* Opera */
+}
 
-
-
+@keyframes shake {
+0%,90%    { transform: translate(3px,0); }
+25%,75%  { transform: translate(0,3px); }
+50%,60%  { transform: translate(-3px,0); }
+100%,10% { transform: translate(0,-3px); }
+}

@@ -40,6 +40,10 @@ socketio.getSocketio = function(server){
 		socket.on('img', function(user,imageurl,color) {
             io.sockets.emit('newImg',user,imageurl,color);   //data包括user,imgurl,color
     });
+    
+        socket.on('shake',function(){
+        	io.sockets.emit('shake');
+        });
 });
 };
 

@@ -72,6 +72,10 @@ function btnLogin_onclick(){          //点击登录按钮后的事件
 			document.getElementById('btnLogout').disabled=true;
 			document.getElementById('btnLogin').disabled="";
 		});
+		
+		socket.on('shake',function(){
+			shake();
+		});
 	});
 	
 	socket.on('error',function(err){      
@@ -95,7 +99,7 @@ function btnSend_onclick(){    //点击发送按钮后的事件，将发送的�
 	}
 }
 
-function btnClear(){
+function btnClear(){         //清除聊天记录
 	var historyContent = document.getElementById('divchat');
 	historyContent.innerHTML='';
 }
@@ -113,7 +117,7 @@ function btnLogout_onclick(){          //当点击退出按钮的事件
 	document.getElementById("btnLogin").disabled="";
 }
 
-function window_onunload(){             //页面关闭的时候触发
+function window_onunload(){           //页面关闭的时候触发
 	socket.emit('logout',userName);
 	socket.disconnect();
 }
@@ -125,6 +129,8 @@ document.onkeydown = function(e){    //当按下的键盘上的按钮时触发�
 	  	e.preventDefault();     //阻止默认的操作--换行，通过addEventListener()注册的事件
 	}
 }
+
+// --------------------------------发送emoji-----------------------------------------------
 
 document.getElementById("emoji").addEventListener('click',function(e){  //当点击emoji按钮时显示emojiWrapper
 	var emojiWrapper=document.getElementById("emojiWrapper");
@@ -177,6 +183,8 @@ function showemoji(msg){      //查找发送的msg中是否有[emoji:8]的字符
         return result;
  }
 
+// -------------------发送图片----------------------------------------
+
 document.getElementById('sendImage').addEventListener('change', function() {
             if (this.files.length != 0) {          //this表示选择的元素
                 var file = this.files[0],
@@ -201,7 +209,7 @@ document.getElementById('sendImage').addEventListener('change', function() {
             };
         }, false);
 
-function displayImage(user,imageurl,color) {    //data对象中包括user:userName,imgurl:e.target.result, color:color
+function displayImage(user,imageurl,color) {       //user,imgurl,color
         var container = document.getElementById('divchat'),
             msgToDisplay = document.createElement('p'),
             date = new Date().toTimeString().substr(0, 8);
@@ -211,3 +219,15 @@ function displayImage(user,imageurl,color) {    //data对象中包括user:userNa
         container.scrollTop = container.scrollHeight;
 }
 
+// ----------------------实现窗口抖动------------------------------------------
+function onshake(){
+	socket.emit('shake');
+}
+
+function shake(){
+	var cshake=document.body;
+	cshake.className+='shake';
+	setTimeout(function(){
+		cshake.classList.remove('shake');
+	},1000);
+}
