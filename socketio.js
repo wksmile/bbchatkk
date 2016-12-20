@@ -41,8 +41,8 @@ socketio.getSocketio = function(server){
             io.sockets.emit('newImg',user,imageurl,color);   //data包括user,imgurl,color
     });
     
-        socket.on('shake',function(){
-        	io.sockets.emit('shake');
+        socket.on('shake',function(userName){
+        	io.sockets.emit('shake',userName);
         });
 });
 };

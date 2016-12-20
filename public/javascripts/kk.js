@@ -73,8 +73,9 @@ function btnLogin_onclick(){          //点击登录按钮后的事件
 			document.getElementById('btnLogin').disabled="";
 		});
 		
-		socket.on('shake',function(){
+		socket.on('shake',function(userName){
 			shake();
+			AddMsg('<span style="color:red;font-style:italic">用户'+userName+'发送了一个抖动窗口</span>');
 		});
 	});
 	
@@ -221,7 +222,7 @@ function displayImage(user,imageurl,color) {       //user,imgurl,color
 
 // ----------------------实现窗口抖动------------------------------------------
 function onshake(){
-	socket.emit('shake');
+	socket.emit('shake',userName);
 }
 
 function shake(){
