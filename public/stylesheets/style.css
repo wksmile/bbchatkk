@@ -11,6 +11,11 @@ a {
   color: #00B7FF;
 }
 
+.container .page-header {
+	 background-color: #EBCCD1;
+	 box-shadow: 1px 1px 1px #00B7FF;
+}
+
 .timespan {
 	color: #aaa;
 	font: 14px italic "arial, helvetica, sans-serif";
