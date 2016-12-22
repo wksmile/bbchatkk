@@ -215,7 +215,7 @@ function displayImage(user,imageurl,color) {       //user,imgurl,color
             msgToDisplay = document.createElement('p'),
             date = new Date().toTimeString().substr(0, 8);
         msgToDisplay.style.color = color || '#000';
-        msgToDisplay.innerHTML = "<span style='font-weight:bolder'>"+user+"</span>" + '<span class="timespan">(' + date + '): </span> <br/>' + ' &nbsp<a href="' + imageurl + '" target="_blank"><img style="width:150px;height:200px" src="' + imageurl + '"/></a>';
+        msgToDisplay.innerHTML = "<span style='font-weight:bolder'>"+user+"</span>" + '<span class="timespan">(' + date + '): </span> <br/>' + ' &nbsp<a href="' + imageurl + '" target="_blank"><img style="width:auto;max-height:200px" src="' + imageurl + '"/></a>';
         container.appendChild(msgToDisplay);
         container.scrollTop = container.scrollHeight;
 }
