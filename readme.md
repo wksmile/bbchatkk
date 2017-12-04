@@ -8,5 +8,3 @@
 - 在工程目录控制台下执行**npm start**或者**node bin/www**
 - 在浏览器地址栏输入[http://localhost:3000/](http://localhost:3000/)
 
-### [在线预览](https://bbchatkk.herokuapp.com/)
-
