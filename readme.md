@@ -6,5 +6,4 @@
 - 安装[nodejs](http://nodejs.cn/)
 - 在工程目录下打开控制台，运行**npm install**
 - 在工程目录控制台下执行**npm start**或者**node bin/www**
-- 在浏览器地址栏输入[http://localhost:3000/](http://localhost:3000/)
-
+- 在浏览器地址栏输入[http://localhost:8090/](http://localhost:8090/)

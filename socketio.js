@@ -22,10 +22,12 @@ socketio.getSocketio = function(server){
 			names.push(name);
 			io.sockets.emit('login',name);
 			io.sockets.emit('sendClients',names);
-});
+		});
+
 		socket.on('chat',function(data){
 			io.sockets.emit('chat',data);
 		});
+
 		socket.on('logout',function(name){
 			for(var i=0;i<names.length;i++){
 				if(names[i]==name){
@@ -41,9 +43,9 @@ socketio.getSocketio = function(server){
             io.sockets.emit('newImg',user,imageurl,color);   //data包括user,imgurl,color
     });
     
-        socket.on('shake',function(userName){
-        	io.sockets.emit('shake',userName);
-        });
+		socket.on('shake',function(userName){
+			io.sockets.emit('shake',userName);
+		});
 });
 };
 
